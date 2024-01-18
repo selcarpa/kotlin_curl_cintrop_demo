@@ -1,0 +1,28 @@
+package = libcurl
+headers = curl/curl.h
+#headerFilter = src/nativeInterop/external/linux/arm64/includecurl/*
+compilerOpts = \
+-Isrc/nativeInterop/external/mingw64/include \
+
+compilerOpts.mingw_x64 = -DCURL_STATICLIB
+
+staticLibraries = \
+libcurl.a \
+libssh2.a \
+libidn2.a \
+libpsl.a \
+libbrotlidec.a \
+libbrotlicommon.a \
+libunistring.a \
+libzstd.a \
+
+linkerOpts.mingw_x64 = -Wl,-Bstatic -lstdc++ -static  \
+-lbcrypt \
+-lcrypt32 \
+-liconv \
+-lwldap32 \
+-lws2_32 \
+-lz
+
+libraryPaths = src/nativeInterop/external/mingw64/lib/
+

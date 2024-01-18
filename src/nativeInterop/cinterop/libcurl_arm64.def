@@ -1,0 +1,6 @@
+package = libcurl
+headers = curl/curl.h
+
+compilerOpts = -Isrc/nativeInterop/external/linux/arm64/include
+
+linkerOpts = -Lsrc/nativeInterop/external/linux/arm64/lib -lcurl
